@@ -1,0 +1,105 @@
+  /* Headings */
+  
+
+  .section-heading {
+    font-size: 3rem;
+    line-height: 1.5;
+  }
+  
+  /* Pricing Section */
+  .castin{
+    padding: 30px 0 0;
+    /* text-align: right; */
+  }
+  .section-heading{
+    color: #000000;
+  }
+  
+  #pricing {
+    padding: 100px;
+    background-color:#242333;
+    display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
+    justify-content: space-evenly; 
+    margin: 35px 30px 35px 35px;
+    border-radius: 8px;
+  }
+  #pricing-text{
+    text-align: center;
+    position: relative;
+    color: #fff;
+    line-height: 1.5rem;
+    font-family: cursive;
+    font-size: 1.3rem;
+  
+  }
+  .section-heading{
+    font-family: 'Pacifico', cursive;
+    color: #fff;
+    text-shadow: 2px 2px 4px #3E74B0;
+    }
+
+  .price-text {
+    font-size: 3rem;
+    line-height: 1.5;
+    
+  }
+  
+  #picture-price{
+    float: left;
+    border-radius: 8px;
+    width:400px;
+    height: 400px;
+    position: relative;
+    padding-right: 30px;
+  }
+  
+  
+  .pricing-column {
+    padding: 3% 2%;
+  }
+  
+  /* CTA Section */
+  .ctacolored-section{
+    background-color:#242333;
+  }
+  .cta-heading{
+  
+    color: #fff;
+    font-family: serif;
+  }
+  #button-id{
+    border-radius: 100px;
+    width: 30%;
+    margin-left: 450px;
+    margin-bottom: 200px;
+    background-color: #3E74B0;
+  }
+  
+  #button-id:hover{
+    background-color: #AEB6BF;
+  }
+  @media (max-width: 1028px) {
+  
+    #title {
+      text-align: center;
+    }
+  
+    .title-image {
+      position: static;
+      transform: rotate(0);
+    }
+  
+    #picture-price{
+      float: none;
+      width: 50%;
+    }
+    #button-id{
+      width: 30%;
+      margin-left: 240px;
+    }
+  
+  }
+  

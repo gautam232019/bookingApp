@@ -35,7 +35,11 @@ const SeatMatrix = () => {
 
    for(let key in details.users){
   	 let a = details.users[key]
-  	 data.push(parseInt(a.seatno))
+  	 var split = a.seatno.split(',');
+     console.log(split);
+     split.forEach(element => {
+       data.push(parseInt(element))
+     });
      if(context.user?.email === a.email){
       return(
         <div className="container2">

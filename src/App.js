@@ -32,8 +32,8 @@ function App() {
   }, function(error) {
     console.log("Error: " + error.code);
   });
-
-
+  
+  
   return (
     <Router>
     <ToastContainer/>

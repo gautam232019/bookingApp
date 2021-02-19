@@ -40,6 +40,7 @@ const handleSignup = () => {
   if(context.user?.uid){
     return <Redirect to="/home"/>
   }
+    
 
     return(
             <div className="modal-dialog text-center">

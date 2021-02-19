@@ -19,16 +19,16 @@ const context = useContext(UserContext)
 const [seatno,setSeatno] = useState(0);
 
 const submit = () => {
-	var mySeat = localStorage.getItem("mySeat")
-	console.log(mySeat);
+	var mySeats = localStorage.getItem("mySeats")
+	console.log(mySeats);
 	var myEmail = context.user?.email;
 	console.log(myEmail);
 	var user = "user"+(Object.keys(details.users).length+1);
     var userRef = firebase.database().ref("users/")
     
      var obj = {
-		email:myEmail,
-		seatno: mySeat,
+		email: myEmail,
+		seatno: mySeats,
 	}
 	console.log(obj);
 	userRef.push(
@@ -39,6 +39,8 @@ for(let key in details.users){
 	let a = details.users[key]
 	//data.push(parseInt(a.seatno))
   if(context.user?.email === a.email){
+	  console.log("user+"+context.user?.email);
+	  console.log(a.email);
      alreadyBooked = true;
   }
 }
@@ -46,12 +48,14 @@ for(let key in details.users){
         return <Redirect to="/signin"/>
       }
     return(
-        <section className="main container">
+    <section className="main container">
 				<SeatMatrix />
-				<SeatAvailability />
-			<button ishidden={alreadyBooked} color='primary' onClick={submit}>Book Now!</button>
-			
-		</section>
+				{alreadyBooked? null : <SeatAvailability/> }
+    <div onClick={submit} className= {alreadyBooked?"hidden": "button"}><a href="#">
+        <p><span className="bg"></span><span className="base"></span><span className="text">Book Now!</span></p>
+    </a>
+	</div>
+	</section>
     )
 }
 

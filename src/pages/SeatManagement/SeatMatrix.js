@@ -1,56 +1,51 @@
-import React,{useContext} from "react"
+import React, { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
-import '../../Seat.css'
-import Seat from './Seat'
+import "../../Seat.css";
+import Seat from "./Seat";
 var data = [];
 
 const GenerateSeats = (seatNumbers) => {
   //console.log(data);
   return (
     <div className="row">
-      {
-        seatNumbers.map((seatNumber) => {
-          var style = ""
-          if (data.includes(seatNumber)) {
-            style = "seat-red"
-          }
-          else {
-            style = "seat-blue"
-          }
-          console.log(seatNumber + style);
-          return <Seat reserved={style} seatno={seatNumber} key={seatNumber} />
-        })
-      }
+      {seatNumbers.map((seatNumber) => {
+        var style = "";
+        if (data.includes(seatNumber)) {
+          style = "seat-red";
+        } else {
+          style = "seat-blue";
+        }
+        console.log(seatNumber + style);
+        return <Seat reserved={style} seatno={seatNumber} key={seatNumber} />;
+      })}
     </div>
-  )
-}
-
+  );
+};
 
 const SeatMatrix = () => {
-  const context = useContext(UserContext)
+  const context = useContext(UserContext);
   var alreadyBooked = false;
-  var details = JSON.parse(localStorage.getItem('dbusers'))
-  console.log("log 2")
-  console.log(details)
+  var details = JSON.parse(localStorage.getItem("dbusers"));
+  console.log("log 2");
+  console.log(details);
 
-   for(let key in details.users){
-  	 let a = details.users[key]
-  	 var split = a.seatno.split(',');
-     console.log(split);
-     split.forEach(element => {
-       data.push(parseInt(element))
-     });
-     if(context.user?.email === a.email){
-      return(
+  for (let key in details.users) {
+    let a = details.users[key];
+    var split = a.seatno.split(",");
+    console.log(split);
+    split.forEach((element) => {
+      data.push(parseInt(element));
+    });
+    if (context.user?.email === a.email) {
+      return (
         <div className="container2">
           <h1>Your Seat no {a.seatno} already booked!</h1>
         </div>
-      ) 
-     }
-   }
-   console.log(data)
+      );
+    }
+  }
+  console.log(data);
   localStorage.setItem("resrvedSeats", JSON.stringify(data));
-
 
   return (
     <div className="movie-complex">
@@ -71,7 +66,7 @@ const SeatMatrix = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SeatMatrix
+export default SeatMatrix;
